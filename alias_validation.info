@@ -1,0 +1,5 @@
+name = alias_validation
+description = Validation of aliases; no spaces and no leading slashes in aliases
+package = Other
+core = 7.x
+dependencies[] = path
