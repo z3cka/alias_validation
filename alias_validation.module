@@ -4,8 +4,8 @@
  * Implementation of hook_form_BASE_FORM_ID_alter().
  */
 function alias_validation_form_node_form_alter(&$form, &$form_state, $form_id) {
-	// add a new validation callback
-	$form['#validate'][] = 'alias_validate';
+  // add a new validation callback
+  $form['#validate'][] = 'alias_validate';
 }
 
 /**
@@ -14,10 +14,10 @@ function alias_validation_form_node_form_alter(&$form, &$form_state, $form_id) {
  * Do not allow a leading fowardslash in the alias
  */
 function alias_validate($form, &$form_state) {
-	// check for spaces in the path
-	if (preg_match('/\s/', $form_state['values']['path']['alias'])) {
-		form_set_error('path', t("Please do not use spaces in your path aliases."));
-	}
-	// remove leading slash (if there is one)
-	$form_state['values']['path']['alias'] = ltrim($form_state['values']['path']['alias'], '/');
+  // check for spaces in the path
+  if (preg_match('/\s/', $form_state['values']['path']['alias'])) {
+    form_set_error('path', t("Please do not use spaces in your path aliases."));
+  }
+  // remove leading slash (if there is one)
+  $form_state['values']['path']['alias'] = ltrim($form_state['values']['path']['alias'], '/');
 }
